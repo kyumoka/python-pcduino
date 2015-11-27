@@ -1,13 +1,15 @@
 from pinmap import PinMap
 
 
-__all__ = ['HIGH', 'LOW', 'INPUT', 'OUTPUT','digital_write', 'digital_read',
+__all__ = ['HIGH', 'LOW', 'INPUT', 'OUTPUT', 'SPI', 'SERIAL', 'digital_write', 'digital_read',
            "pin_mode"]
 
 HIGH = 1
 LOW = 0
 INPUT = 0
 OUTPUT = 1
+SPI = 2
+SERIAL = 3
 
 gpio_pins = PinMap(
     '/sys/devices/virtual/misc/gpio/pin',
@@ -37,4 +39,4 @@ def pin_mode(channel, mode):
     """ Set Mode of a GPIO channel """
     path = gpio_mode_pins.get_path(channel)
     with open(path, 'w+') as f:
-        f.write('0' if mode == INPUT else '1')
+        f.write(str(mode))
