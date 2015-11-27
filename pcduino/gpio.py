@@ -1,7 +1,7 @@
 from pinmap import PinMap
 
 
-__all__ = ['HIGH', 'LOW', 'INPUT', 'OUTPUT', 'SPI', 'SERIAL', 'digital_write', 'digital_read',
+__all__ = ['HIGH', 'LOW', 'INPUT', 'OUTPUT', 'SPI', 'SERIAL', 'INPUT_PU', 'digital_write', 'digital_read',
            "pin_mode"]
 
 HIGH = 1
@@ -10,6 +10,7 @@ INPUT = 0
 OUTPUT = 1
 SPI = 2
 SERIAL = 3
+INPUT_PU = 8
 
 gpio_pins = PinMap(
     '/sys/devices/virtual/misc/gpio/pin',
